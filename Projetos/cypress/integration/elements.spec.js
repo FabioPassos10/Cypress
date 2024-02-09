@@ -27,9 +27,19 @@ describe('Trabalhando com elementos basicos', () => {
         cy.get('[data-cy=dataSobrenome]').clear().type('teste12345678{selectall}teste').should('have.value','teste')
     });
 
-    it.only('RedioButton', () => {
+    it('RedioButton', () => {
         cy.get("[name='formSexo']").should('have.length',2)
         cy.get('#formSexoMasc').check().should('be.checked')
         cy.get('#formSexoFem').should('not.to.be.checked')
+    });
+    it.only('Checkbox', () => {
+        cy.get('#formComidaCarne').check()
+        cy.get('#formComidaFrango').check()
+        cy.get('#formComidaPizza').check()
+        cy.get('#formComidaVegetariana').check()
+        cy.get("[name='formComidaFavorita']").should('have.length',4)
+        cy.get('#formComidaVegetariana').click()
+
+        cy.get("[name='formComidaFavorita']").click({multiple:true})
     });
 });

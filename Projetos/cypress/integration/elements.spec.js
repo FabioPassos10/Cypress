@@ -32,7 +32,7 @@ describe('Trabalhando com elementos basicos', () => {
         cy.get('#formSexoMasc').check().should('be.checked')
         cy.get('#formSexoFem').should('not.to.be.checked')
     });
-    it.only('Checkbox', () => {
+    it('Checkbox', () => {
         cy.get('#formComidaCarne').check()
         cy.get('#formComidaFrango').check()
         cy.get('#formComidaPizza').check()
@@ -41,5 +41,17 @@ describe('Trabalhando com elementos basicos', () => {
         cy.get('#formComidaVegetariana').click()
 
         cy.get("[name='formComidaFavorita']").click({multiple:true})
+    });
+
+
+    it('Combo', () => {
+        cy.get('[data-test=dataEscolaridade]')
+        .select('2o grau incompleto')
+        .should('have.value','2grauincomp')
+    });
+
+    it.only('Combo multiplo', () => {
+        cy.get('[data-testid=dataEsportes]').select(['natacao', 'Corrida'])
+        
     });
 });

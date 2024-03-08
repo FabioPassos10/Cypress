@@ -42,6 +42,8 @@ describe('Esperas', () => {
 
     it.only('Should vs then', () => {
         cy.get('#buttonListDOM').click()
-        cy.get('#lista li span').then()
+        cy.get('#lista li span').then($el=>{
+            
+        })
     });
 });
